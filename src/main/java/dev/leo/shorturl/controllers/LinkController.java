@@ -28,7 +28,7 @@ public class LinkController {
     @PostMapping(path = "/short")
     public ResponseEntity<LinkResponse> shortUrl(@RequestBody LinkRequest linkRequest){
         Link shortLink = linkService.getByShortVersion(linkRequest.getLongLink())
-            .orElse(linkService.shortningUrl(linkRequest.getLongLink(),linkRequest.getTtd()));
+            .orElse(linkService.shorteningUrl(linkRequest.getLongLink(),linkRequest.getTtd()));
         return new ResponseEntity<LinkResponse>(LinkResponse.of(shortLink),HttpStatus.OK);
     }
     

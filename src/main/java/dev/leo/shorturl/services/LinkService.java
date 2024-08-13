@@ -19,7 +19,7 @@ public class LinkService {
         return RandomStringUtils.randomAlphanumeric(5,10);
     }
 
-    public Link shortningUrl(String longUrl, int ttd){
+    public Link shorteningUrl(String longUrl, int ttd){
         String shortUrl = getRandomUrl();
         while (repo.existsByShortVersion(shortUrl)) {
             shortUrl = getRandomUrl();
@@ -37,7 +37,7 @@ public class LinkService {
 
     }
 
-    public Optional<Link> getByShortVersion(String shotUrl){
-        return repo.findByShortVersion(shotUrl);
+    public Optional<Link> getByShortVersion(String shortUrl){
+        return repo.findByShortVersion(shortUrl);
     }
 }

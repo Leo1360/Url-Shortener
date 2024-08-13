@@ -33,9 +33,9 @@ public class Link {
 
     private LocalDateTime validUntil;
 
-    public Link(String longVersion, String shotVersion, String qrCodeUrl, boolean expirable, LocalDateTime validUntil) {
+    public Link(String longVersion, String shortVersion, String qrCodeUrl, boolean expirable, LocalDateTime validUntil) {
         this.longVersion = longVersion;
-        this.shortVersion = shotVersion;
+        this.shortVersion = shortVersion;
         this.qrCodeUrl = qrCodeUrl;
         this.expirable = expirable;
         this.validUntil = validUntil;
