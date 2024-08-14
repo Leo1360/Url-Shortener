@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shortlink - Encurtador de URLs</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f7f7f7;
+        }
+        .banner {
+            background-color: #ff6600;
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+        .banner h1 {
+            font-size: 3rem;
+        }
+        .container {
+            margin-top: 30px;
+        }
+        .input-group {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .checkbox-label input {
+            margin-right: 10px;
+        }
+        .expiry-input {
+            display: none;
+            max-width: 300px;
+            margin: 20px auto;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Banner -->
+    <div class="banner">
+        <h1>Shortlink</h1>
+        <p>Transforme seus links longos em curtos e fáceis de compartilhar.</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container text-center">
+        <h2>Encurte seu link</h2>
+        <form action="/generate" method="post">
+            <div class="input-group my-4">
+                <input type="url" name="longLink" class="form-control" placeholder="Cole aqui seu link" required>
+            </div>
+            <div class="checkbox-label">
+                <input type="checkbox" name="expirable" id="expirable-checkbox" autocomplete="off">
+                <label for="expirable-checkbox">Link expirável</label>
+            </div>
+            <div id="ttdbox" hidden>
+                <label for="ttd">Tempo ativo em minutos. Ex: 1440 para um dia</label>
+                </br>
+                <div class="input-group" >
+                    <input id="ttd" type="number" name="ttd" class="form-control" value="0" min="0">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Encurtar</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap 5 JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script>
+        // Mostrar ou ocultar o input de tempo de expiração
+        document.getElementById('expirable-checkbox').addEventListener('change', function () {
+            const expiryInput = document.getElementById("ttdbox");
+            if (this.checked) {
+                expiryInput.hidden = false;
+            } else {
+                expiryInput.hidden = true;
+            }
+        });
+    </script>
+</body>
+</html>
