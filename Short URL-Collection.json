@@ -1,40 +1,54 @@
 {
-    "clientName": "Thunder Client",
-    "collectionName": "Short URL",
-    "collectionId": "3e48e4e3-e050-4e17-ad46-f7b160f457b7",
-    "dateExported": "2024-08-13T02:38:16.953Z",
-    "version": "1.2",
-    "folders": [],
-    "requests": [
+    "info": {
+        "_postman_id": "1d47dd68-66b9-4be4-a2fa-8e184c948e1d",
+        "name": "Short URL",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
         {
-            "_id": "820e506c-6649-4ee9-82a6-d5001d684976",
-            "colId": "3e48e4e3-e050-4e17-ad46-f7b160f457b7",
-            "containerId": "",
             "name": "Get link info",
-            "url": "localhost:8080/get/yyzPm9US8",
-            "method": "GET",
-            "sortNum": 10000,
-            "created": "2024-08-12T23:48:03.119Z",
-            "modified": "2024-08-13T02:37:03.291Z",
-            "headers": []
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "localhost:8080/api/get/xYwxlj",
+                    "path": [
+                        "api",
+                        "get",
+                        "xYwxlj"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080"
+                }
+            }
         },
         {
-            "_id": "d60562f3-2f64-478a-8dd8-50abb8f751eb",
-            "colId": "3e48e4e3-e050-4e17-ad46-f7b160f457b7",
-            "containerId": "",
             "name": "Shortening URL",
-            "url": "localhost:8080/short",
-            "method": "POST",
-            "sortNum": 20000,
-            "created": "2024-08-12T23:48:13.445Z",
-            "modified": "2024-08-13T02:36:28.453Z",
-            "headers": [],
-            "body": {
-                "type": "json",
-                "raw": "{\n  \"longLink\":\"https://www.google.com/\"\n}",
-                "form": []
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "localhost:8080/api/short",
+                    "path": [
+                        "api",
+                        "short"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"longLink\":\"https://www.google.com/\"\n}"
+                }
             }
         }
-    ],
-    "ref": "gaEe_p7qRNSYWlENtLnwpifbgrU6ydVNYbHB2EyVf28D5gS1pWdFYkjuZt1Wb0RTHjYvVrc8yeeivjFAVqmqqQ"
+    ]
 }
