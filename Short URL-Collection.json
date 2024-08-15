@@ -1,0 +1,54 @@
+{
+    "info": {
+        "_postman_id": "1d47dd68-66b9-4be4-a2fa-8e184c948e1d",
+        "name": "Short URL",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "Get link info",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "localhost:8080/api/get/xYwxlj",
+                    "path": [
+                        "api",
+                        "get",
+                        "xYwxlj"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080"
+                }
+            }
+        },
+        {
+            "name": "Shortening URL",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "localhost:8080/api/short",
+                    "path": [
+                        "api",
+                        "short"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"longLink\":\"https://www.google.com/\"\n}"
+                }
+            }
+        }
+    ]
+}
