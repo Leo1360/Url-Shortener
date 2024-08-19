@@ -4,11 +4,29 @@ services:
 
   db:
     image: mysql
-    container_name: shotlinkdb
+    networks:
+      - rede
+    container_name: ShortLink-Db
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: shortlink
     ports:
       - "3306:3306"
-    
+  backend:
+    networks:
+      - rede
+    environment: 
+      DB-IP: "ShortLink-Db"
+      DB-PORT: "3306"
+    build:
+      dockerfile: dockerfile
+    container_name: ShortLink-App
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    restart: always
+
+networks:
+  rede: {}
