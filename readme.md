@@ -6,8 +6,9 @@ Os metodos da API Rest estão no arquivo do [Postman](./Short%20URL-Collection.j
 Os links podem ser encurtados no navegador em [localhost:8080](localhost:8080).\
 Para usar o redirecionamento no navegador basta chamar localhost:8080/l/{encurtamento} 
 
-## Como rodar
-O arquivo do programa esta na pasta **package**, para roda-lo é necessário um banco de dados mysql rodando na porta padrão (3306) no qual os dados dos links serão salvos.
+## Como instalar
+Recomendo fazer fazer a instalação pelo docker. Basta baixar esse repositório e dentro dele rolar `docker compose up` e tudo irá rodar com as configurações padrão, incluindo o banco de dados. As configurações de banco podem ser alteradas no `compose.yaml` caso seja necessário.
+
 
 ## Todo
 - [ ] Gerar QrCode do link
