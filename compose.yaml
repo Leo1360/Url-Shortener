@@ -1,14 +1,40 @@
 version: '3.1'
 
+networks:
+  shortnet: {}
+
 services:
 
   db:
     image: mysql
-    container_name: shotlinkdb
+    networks:
+      - shortnet
+    container_name: ShortLink-Db
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: shortlink
     ports:
       - "3306:3306"
-    
+    volumes:
+      - shortvolume:/opt/shortlinkDB
+  backend:
+    networks:
+      - shortnet
+    environment: 
+      - "SLINK-DB-HOST=db"
+      - "SLINK-DB-PORT=3306"
+      - "SLINK-DB-USER=root"
+      - "SLINK-DB-PASSW=root"
+    build:
+      dockerfile: dockerfile
+    container_name: ShortLink-App
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    restart: always
+
+
+volumes:
+  shortvolume:
